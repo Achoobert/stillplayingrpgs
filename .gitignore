@@ -7,6 +7,16 @@ database.db
 *.db-journal
 *.db-shm
 *.db-wal
+.pi-lens/
+main
+database.db
+.env
+.env.local
+.env.*.local
+*.db
+*.db-journal
+*.db-shm
+*.db-wal
 
 # IDE / Editor configs
 .opencode/
