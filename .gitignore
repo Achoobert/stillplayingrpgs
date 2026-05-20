@@ -1,0 +1,30 @@
+# Database and environment files
+database.db
+.env
+.env.local
+.env.*.local
+*.db
+*.db-journal
+*.db-shm
+*.db-wal
+
+# IDE / Editor configs
+.opencode/
+.openartisan/
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Build outputs & packages
+node_modules/
+dist/
+build/
+bin/
+
+# OS files
+.DS_Store
+Thumbs.db

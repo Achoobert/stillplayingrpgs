@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StartPlaying Clone</title>
+    <link rel="stylesheet" href="/static/css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Welcome to StartPlaying Clone!</h1>
+      <nav><a href="/login">Login</a> | <a href="/register">Register</a></nav>
+
+      <h2>Available Games</h2>
+      <ul class="game-list">
+        {{ range .games }}
+        <li class="game-item">
+          <h3><a href="/game/{{ .ID }}">{{ .Title }}</a></h3>
+          <p>System: {{ .System }}</p>
+          <p>Start Time: {{ .StartTime }}</p>
+          <p>Price: ${{ .Price }}</p>
+          <p>Players: {{ .MaxPlayers }}</p>
+        </li>
+        {{ else }}
+        <li>No games available yet.</li>
+        {{ end }}
+      </ul>
+    </div>
+  </body>
+</html>

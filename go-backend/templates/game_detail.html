@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game Detail - {{ .game.Title }}</title>
+    <link rel="stylesheet" href="/static/css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>{{ .game.Title }}</h1>
+      <p>System: {{ .game.System }}</p>
+      <p>GM: {{ .game.GMID }}</p>
+      <p>Start Time: {{ .game.StartTime }}</p>
+      <p>Price: ${{ .game.Price }}</p>
+      <p>Max Players: {{ .game.MaxPlayers }}</p>
+      <p>Description: {{ .game.Description }}</p>
+
+      <form action="/game/{{ .game.ID }}/join" method="post">
+        <button type="submit">Join Game</button>
+      </form>
+
+      <p><a href="/">Back to Home</a></p>
+    </div>
+  </body>
+</html>

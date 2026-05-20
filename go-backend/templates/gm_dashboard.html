@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GM Dashboard</title>
+    <link rel="stylesheet" href="/static/css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>GM Dashboard</h1>
+      <p>Welcome, {{ .current_user.Username }}!</p>
+
+      <h2>Your Games</h2>
+      <ul class="game-list">
+        {{ range .games }}
+        <li class="game-item">
+          <h3><a href="/game/{{ .ID }}">{{ .Title }}</a></h3>
+          <p>System: {{ .System }}</p>
+          <p>Start Time: {{ .StartTime }}</p>
+          <p>Price: ${{ .Price }}</p>
+          <p>Players: {{ .MaxPlayers }}</p>
+          <p>Description: {{ .Description }}</p>
+        </li>
+        {{ else }}
+        <li>No games created yet.</li>
+        {{ end }}
+      </ul>
+
+      <h2>Create New Game</h2>
+      <form action="/gm_dashboard/create_game" method="post">
+        <div class="form-group">
+          <label for="title">Title:</label>
+          <input type="text" id="title" name="title" required />
+        </div>
+        <div class="form-group">
+          <label for="system">System:</label>
+          <input type="text" id="system" name="system" required />
+        </div>
+        <div class="form-group">
+          <label for="start_time">Start Time:</label>
+          <input
+            type="datetime-local"
+            id="start_time"
+            name="start_time"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="price">Price:</label>
+          <input type="number" step="0.01" id="price" name="price" required />
+        </div>
+        <div class="form-group">
+          <label for="max_players">Max Players:</label>
+          <input type="number" id="max_players" name="max_players" required />
+        </div>
+        <div class="form-group">
+          <label for="description">Description:</label>
+          <textarea id="description" name="description" rows="5"></textarea>
+        </div>
+        <div class="form-group">
+          <button type="submit">Create Game</button>
+        </div>
+      </form>
+
+      <p><a href="/logout">Logout</a></p>
+    </div>
+  </body>
+</html>

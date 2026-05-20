@@ -1,0 +1,13 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "30011:30011"
+    volumes:
+      - ./database.db:/root/database.db
+    environment:
+      - DATABASE_URL=./database.db
+      - SECRET_KEY=change-me-in-production
+    restart: always

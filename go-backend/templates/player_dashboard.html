@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Player Dashboard</title>
+    <link rel="stylesheet" href="/static/css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Player Dashboard</h1>
+      <p>Welcome, {{ .current_user.Username }}!</p>
+
+      <h2>Your Bookings</h2>
+      <ul class="game-list">
+        {{ range .bookings }}
+        <li class="game-item">
+          <h3><a href="/game/{{ .ID }}">{{ .Title }}</a></h3>
+          <p>System: {{ .System }}</p>
+          <p>Start Time: {{ .StartTime }}</p>
+          <p>Price: ${{ .Price }}</p>
+        </li>
+        {{ else }}
+        <li>No games booked yet.</li>
+        {{ end }}
+      </ul>
+
+      <p><a href="/">Back to Home</a> | <a href="/logout">Logout</a></p>
+    </div>
+  </body>
+</html>
