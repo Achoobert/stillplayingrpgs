@@ -110,6 +110,7 @@ func main() {
 		cookie.Name = "session_token"
 		cookie.Value = user.Username
 		cookie.HttpOnly = true
+		cookie.Path = "/"
 		c.SetCookie(cookie)
 
 		if user.Role == "GM" {
@@ -123,6 +124,7 @@ func main() {
 		cookie.Name = "session_token"
 		cookie.Value = ""
 		cookie.MaxAge = -1
+		cookie.Path = "/"
 		c.SetCookie(cookie)
 		return c.Redirect(http.StatusSeeOther, "/")
 	})

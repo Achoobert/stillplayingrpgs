@@ -15,10 +15,9 @@
       <ul class="game-list">
         {{ range .bookings }}
         <li class="game-item">
-          <h3><a href="/game/{{ .ID }}">{{ .Title }}</a></h3>
-          <p>System: {{ .System }}</p>
-          <p>Start Time: {{ .StartTime }}</p>
-          <p>Price: ${{ .Price }}</p>
+          <p>Booking ID: {{ .ID }}</p>
+          <p>Game ID: {{ .GameID }}</p>
+          <p>Status: {{ .Status }}</p>
         </li>
         {{ else }}
         <li>No games booked yet.</li>

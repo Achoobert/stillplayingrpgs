@@ -20,6 +20,15 @@
         <button type="submit">Join Game</button>
       </form>
 
+      <h3>Players</h3>
+      <ul>
+        {{ range .players }}
+        <li>{{ .Username }}</li>
+        {{ else }}
+        <li>No players yet.</li>
+        {{ end }}
+      </ul>
+
       <p><a href="/">Back to Home</a></p>
     </div>
   </body>
